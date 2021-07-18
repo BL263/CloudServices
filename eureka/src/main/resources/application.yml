@@ -1,6 +1,6 @@
 server:
-  port: 8761
-  eureka:
+    port: 8761
+eureka:
     instance:
       hostname: localhost
     client:
@@ -8,4 +8,6 @@ server:
       fetch-registery: false
     server:
       response-cache-update-interval-ms: 5000
-
+spring:
+  application:
+    name: eureka
