@@ -9,7 +9,7 @@ plugins {
 
 group = "it.group16"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
@@ -18,11 +18,12 @@ repositories {
 extra["springCloudVersion"] = "2020.0.3"
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j")
+    implementation("org.springframework.cloud:spring-cloud-starter-gateway")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
@@ -35,7 +36,7 @@ dependencyManagement {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
 }
 
